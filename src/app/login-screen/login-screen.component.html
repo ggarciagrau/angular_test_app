@@ -1,0 +1,41 @@
+<div class="card" style="width: 30rem; margin: 0 auto;">
+    <div class="card-body">
+      <h5 class="card-title">Angular Test App</h5>
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <button 
+                class="nav-link active" 
+                id="nav-login-tab" 
+                data-bs-toggle="tab" 
+                data-bs-target="#nav-login" 
+                type="button" 
+                role="tab" 
+                aria-controls="nav-login" 
+                aria-selected="true"
+            >
+                Login
+            </button>
+        </li>
+        <li class="nav-item">
+            <button 
+            class="nav-link" 
+            id="nav-register-tab" 
+            data-bs-toggle="tab" 
+            data-bs-target="#nav-register" 
+            type="button" 
+            role="tab" 
+            aria-controls="nav-register" 
+            aria-selected="true"
+        >
+            Register
+        </button>
+        </li>
+      </ul>
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-login" role="tabpanel" aria-labelledby="nav-login-tab">
+            <app-login-form></app-login-form>
+        </div>
+        <div class="tab-pane fade" id="nav-register" role="tabpanel" aria-labelledby="nav-register-tab">Register</div>
+      </div>
+    </div>
+  </div>
