@@ -17,7 +17,7 @@ export class ValidateEmailDirective implements Validator {
   }
 
   validate(emailField: AbstractControl): { [key: string]: any } | null {
-      if (emailField?.value && !this.emailPattern.test(emailField.value)) {
+      if (emailField?.value && !this.emailPattern.test(emailField.value) || !emailField?.value) {
         return { invalid: true };
       }
       return null;

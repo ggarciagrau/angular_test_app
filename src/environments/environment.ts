@@ -5,7 +5,15 @@
 export const environment = {
   production: false,
   apiURL: "http://localhost:8000/api",
-  acceptHeader: { Accept: 'application/json' }
+  acceptHeader: { Accept: 'application/json' },
+  messages: {
+    errors: {
+      nameIsInvalid: "The name must be between 3 and 10 characters long!",
+      emailIsInvalid: "The email is not valid!",
+      passwordIsInvalid: "The password does not meet the requirements!",
+      passwordsNotMatch: "The passwords do not match!"
+    }
+  }
 };
 
 /*

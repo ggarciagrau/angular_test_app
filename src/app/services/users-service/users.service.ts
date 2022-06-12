@@ -4,7 +4,9 @@ import { environment } from 'src/environments/environment';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+
+import { User } from 'src/app/models/User';
+import { Session } from 'src/app/models/Session';
 
 @Injectable({
   providedIn: 'root'
@@ -18,13 +20,14 @@ export class UsersService {
     this.headers = new HttpHeaders(environment.acceptHeader)
    }
   
-  signup() {
-
+  signup(body: User): Observable<Session> {
+    return this.http
+    .post<any>(this.apiURL + "/signup", body, { headers: this.headers });
   }
 
-  login (body: any): Observable<any> {
-    console.log(this.apiURL + "/login")
-    return this.http.post<any>(this.apiURL + "/login", body, { headers: this.headers });
+  login (body: any): Observable<Session> {
+    return this.http
+    .post<any>(this.apiURL + "/login", body, { headers: this.headers });
   }
 
   logout () {

@@ -4,11 +4,11 @@ import { Router } from '@angular/router';
 import { SessionStorageService } from '../services/session-storage-service/session-storage.service';
 
 @Component({
-  selector: 'app-login-screen',
-  templateUrl: './login-screen.component.html',
-  styleUrls: ['./login-screen.component.css']
+  selector: 'app-main-screen',
+  templateUrl: './main-screen.component.html',
+  styleUrls: ['./main-screen.component.css']
 })
-export class LoginScreenComponent implements OnInit {
+export class MainScreenComponent implements OnInit {
 
   constructor(
     private sessionStorageService: SessionStorageService,
@@ -16,8 +16,10 @@ export class LoginScreenComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    if (this.sessionStorageService.getSession().token)
-      this.router.navigate(["/main"])
+    if (!this.sessionStorageService.getSession().token) {
+      this.sessionStorageService.removeSession();
+      this.router.navigate([""])
+    }
   }
 
 }

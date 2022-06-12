@@ -1,0 +1,75 @@
+<form #registerForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input 
+            type="text" 
+            name="name" 
+            id="name" 
+            class="form-control"
+            required
+            #nameInput="ngModel"
+            [(ngModel)]="user.name"
+        />
+        <app-error-message *ngIf="(nameInput.dirty || !nameInput.pristine) && (nameInput.value.length > 10 || nameInput.value.length < 3)">
+            {{messages.errors.nameIsInvalid}}
+        </app-error-message>
+    </div>
+    <div class="form-group">
+        <label for="email-register">Email:</label>
+        <input 
+            type="email" 
+            name="email" 
+            id="email-register" 
+            class="form-control"
+            [(ngModel)]="user.email"
+            #emailInput="ngModel"
+            appValidateEmail
+            required
+        />
+        <app-error-message *ngIf="(emailInput.dirty || !emailInput.pristine) && emailInput.errors?.['invalid']">
+            {{messages.errors.emailIsInvalid}}
+        </app-error-message>
+    </div>
+    <div class="form-group">
+        <label for="password-register">Password</label>
+        <input 
+            type="password" 
+            name="password" 
+            id="password-register" 
+            class="form-control"
+            [(ngModel)]="user.password"
+            #emailInput="ngModel"
+            #passwordInput="ngModel"
+            appValidatePassword
+            required
+        />
+        <app-error-message *ngIf="(passwordInput.dirty || !passwordInput.pristine) && passwordInput.errors?.['invalid']">
+            {{messages.errors.passwordIsInvalid}}
+        </app-error-message>
+        <label for="password_confirmation">Confirm password</label>
+        <input 
+            type="password" 
+            name="password_confirmation" 
+            id="password_confirmation" 
+            class="form-control"
+            [(ngModel)]="user.password_confirmation"
+            #confirmationPasswordInput="ngModel"
+            appValidatePassword
+            required
+        />
+        <app-error-message *ngIf="(confirmationPasswordInput.dirty || !confirmationPasswordInput.pristine) && passwordInput.value != confirmationPasswordInput.value">
+            {{messages.errors.passwordsNotMatch}}
+        </app-error-message>
+        <app-error-message *ngIf="(confirmationPasswordInput.dirty || !confirmationPasswordInput.pristine) && confirmationPasswordInput.errors?.['invalid']">
+            {{messages.errors.passwordIsInvalid}}
+        </app-error-message>
+    </div>
+    <div class="form-group">
+        <input 
+            type="submit"
+            value="Submit"
+            class="btn btn-primary"
+            [disabled]="!registerForm.form.valid || passwordInput.value != confirmationPasswordInput.value"
+        />
+    </div>
+</form>

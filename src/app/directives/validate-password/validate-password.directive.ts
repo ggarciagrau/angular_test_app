@@ -17,7 +17,7 @@ export class ValidatePasswordDirective implements Validator {
   }
 
   validate(passwordField: AbstractControl) : { [key: string]: any } | null {
-    if (passwordField?.value && !this.passwordPattern.test(passwordField.value)) {
+    if (passwordField?.value && !this.passwordPattern.test(passwordField.value) || !passwordField?.value) {
       return { invalid: true };
     }
     return null;    
