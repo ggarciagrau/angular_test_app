@@ -1,0 +1,8 @@
+<div class="content" style="display: flex; gap: 3rem;">
+    <input type="submit" value="Crear" class="btn btn-primary" (click)="createProduct()" />
+    <app-product-form (changedStateEvt)="getList()" [product]="selectedProduct"></app-product-form>
+    <app-delete-product (changedStateEvt)="getList()" [product]="selectedProduct"></app-delete-product>
+    <div *ngFor="let product of (products$  | async); let i = index">
+        <app-product-card [product]="product" [index]="i" (updateProductEvt)="updateProduct($event)" (deleteProductEvt)="deleteProduct($event)"></app-product-card>
+    </div>
+</div>

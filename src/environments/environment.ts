@@ -7,12 +7,25 @@ export const environment = {
   apiURL: "http://localhost:8000/api",
   acceptHeader: { Accept: 'application/json' },
   messages: {
+    success: {
+      productCreated: "Product created",
+      productUpdated: "Product updated",
+      productDeleted: "Product deleted"
+    },
     errors: {
       nameIsInvalid: "The name must be between 3 and 10 characters long!",
       emailIsInvalid: "The email is not valid!",
       passwordIsInvalid: "The password does not meet the requirements!",
-      passwordsNotMatch: "The passwords do not match!"
+      passwordsNotMatch: "The passwords do not match!",
+      productNotCreated: "Product not created",
+      productNotUpdated: "Product not updated",
+      productNotDeleted: "Product not deleted"
     }
+  },
+  productCrud: {
+    new: "New product",
+    edit: "Edit product",
+    delete: "Delete product"
   }
 };
 
