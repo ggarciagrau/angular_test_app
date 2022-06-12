@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 
 import { environment } from 'src/environments/environment';
 
+import { ProductCategory } from 'src/app/models/ProductCategory';
+
 import { SessionStorageService } from 'src/app/services/session-storage-service/session-storage.service';
 import { NotificationService } from 'src/app/services/notification-service/notification.service';
 import { UsersService } from 'src/app/services/users-service/users.service';

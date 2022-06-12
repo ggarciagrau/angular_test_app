@@ -1,5 +1,6 @@
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { Product } from 'src/app/models/Product';
+import { ProductCategory } from 'src/app/models/ProductCategory';
 import { NotificationService } from 'src/app/services/notification-service/notification.service';
 import { ProductsService } from 'src/app/services/products-service/products.service';
 import { SessionStorageService } from 'src/app/services/session-storage-service/session-storage.service';
@@ -23,7 +24,7 @@ export class DeleteProductComponent implements OnInit {
     private productsService: ProductsService,
     private notificationService: NotificationService
   ) { 
-    this.product = new Product(null, "", "", null, "");
+    this.product = new Product(null, "", "", null, "", 0, new ProductCategory(0, ""));
   }
 
   delete() {

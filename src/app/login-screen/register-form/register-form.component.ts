@@ -8,6 +8,7 @@ import { SessionStorageService } from 'src/app/services/session-storage-service/
 import { NotificationService } from 'src/app/services/notification-service/notification.service';
 
 import { User } from 'src/app/models/User';
+import { ProductCategory } from 'src/app/models/ProductCategory';
 
 @Component({
   selector: 'app-register-form',

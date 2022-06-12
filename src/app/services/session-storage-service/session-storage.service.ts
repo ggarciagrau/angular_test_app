@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Session } from 'src/app/models/Session';
 import { User } from 'src/app/models/User';
+import { ProductCategory } from 'src/app/models/ProductCategory';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,6 @@ export class SessionStorageService {
   constructor() { }
 
     public setSession(session: Session) {
-      console.log(session)
       this.set("id", session.user.id ? session.user.id.toString() : "");
       this.set("name", session.user.name);
       this.set("email", session.user.email);

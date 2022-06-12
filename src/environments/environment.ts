@@ -10,7 +10,8 @@ export const environment = {
     success: {
       productCreated: "Product created",
       productUpdated: "Product updated",
-      productDeleted: "Product deleted"
+      productDeleted: "Product deleted",
+      logout: "Logout"
     },
     errors: {
       nameIsInvalid: "The name must be between 3 and 10 characters long!",
@@ -19,7 +20,8 @@ export const environment = {
       passwordsNotMatch: "The passwords do not match!",
       productNotCreated: "Product not created",
       productNotUpdated: "Product not updated",
-      productNotDeleted: "Product not deleted"
+      productNotDeleted: "Product not deleted",
+      logoutInvalid: "Can not log out"
     }
   },
   productCrud: {

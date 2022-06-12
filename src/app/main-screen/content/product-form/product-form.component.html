@@ -25,7 +25,15 @@
                     <input type="number" id="price" name="price" class="form-control" [(ngModel)]="product.price" required />
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="Submit" class="btn btn-primary" [disabled]="!productForm.form.valid" />
+                  <label for="category">Category:</label>                  
+                  <select id="category" name="id_category" class="form-control" [(ngModel)]="product.id_category" required >
+                    <ng-container *ngFor="let productCategory of (productCategories$  | async); let i = index">
+                      <option [selected]="product.id_category == productCategory.id" [value]="productCategory.id">{{ productCategory.name }}</option>
+                    </ng-container>
+                  </select>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Submit" class="btn btn-primary" [disabled]="!productForm.form.valid || product.id_category == 0" />
                 </div>
           </form>
         </div>

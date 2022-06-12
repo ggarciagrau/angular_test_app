@@ -22,15 +22,20 @@ export class UsersService {
   
   signup(body: User): Observable<Session> {
     return this.http
-    .post<any>(this.apiURL + "/signup", body, { headers: this.headers });
+    .post<Session>(this.apiURL + "/signup", body, { headers: this.headers });
   }
 
   login (body: any): Observable<Session> {
     return this.http
-    .post<any>(this.apiURL + "/login", body, { headers: this.headers });
+    .post<Session>(this.apiURL + "/login", body, { headers: this.headers });
   }
 
-  logout () {
-
+  logout (session: Session): Observable<any> {
+    let headers = new HttpHeaders({
+      Accept: environment.acceptHeader.Accept,
+      Authorization: `Bearer ${session.token}`
+    });
+    return this.http
+      .post<any>(this.apiURL + "/logout", null, { headers });
   }
 }

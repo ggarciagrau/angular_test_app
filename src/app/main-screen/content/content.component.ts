@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Observable, of } from 'rxjs';
 import { Product } from 'src/app/models/Product';
+import { ProductCategory } from 'src/app/models/ProductCategory';
 
 import { ProductsService } from 'src/app/services/products-service/products.service';
 
@@ -15,8 +16,9 @@ export class ContentComponent implements OnInit {
   selectedProduct: Product;
   products$: Observable<Product[]> = of([]);
 
-  constructor(private productsService: ProductsService) { 
-    this.selectedProduct = new Product(null, "", "", null, "");
+  constructor(private productsService: ProductsService) {
+    this.products$ = this.productsService.get(); 
+    this.selectedProduct = new Product(null, "", "", null, "", 0, new ProductCategory(0, ""));
   }
 
   updateProduct(product: Product) {
@@ -30,10 +32,11 @@ export class ContentComponent implements OnInit {
   }
 
   createProduct() {
+    this.selectedProduct = new Product(null, "", "", null, "", 0, new ProductCategory(0, ""));
     document.getElementById("productFormButton")?.click();
   }
 
-  getList() {
+  getList() {  
     this.products$ = this.productsService.get();
   }
 

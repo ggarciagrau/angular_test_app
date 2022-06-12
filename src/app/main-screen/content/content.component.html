@@ -1,8 +1,18 @@
-<div class="content" style="display: flex; gap: 3rem;">
-    <input type="submit" value="Crear" class="btn btn-primary" (click)="createProduct()" />
+<div class="content">
     <app-product-form (changedStateEvt)="getList()" [product]="selectedProduct"></app-product-form>
     <app-delete-product (changedStateEvt)="getList()" [product]="selectedProduct"></app-delete-product>
-    <div *ngFor="let product of (products$  | async); let i = index">
-        <app-product-card [product]="product" [index]="i" (updateProductEvt)="updateProduct($event)" (deleteProductEvt)="deleteProduct($event)"></app-product-card>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <input type="submit" value="Create" class="btn btn-primary" (click)="createProduct()" />
+            </div>
+        </div>
+        <div class="row">
+            <ng-container *ngFor="let product of (products$  | async); let i = index">
+                <div class="col-sm-6 col-md-4 mt-2">
+                    <app-product-card [product]="product" [index]="i" (updateProductEvt)="updateProduct($event)" (deleteProductEvt)="deleteProduct($event)"></app-product-card>
+                </div>
+            </ng-container>
+        </div>
     </div>
 </div>

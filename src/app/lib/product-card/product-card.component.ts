@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from 'src/app/models/Product';
+import { ProductCategory } from 'src/app/models/ProductCategory';
 
 @Component({
   selector: 'app-product-card',
@@ -14,7 +15,7 @@ export class ProductCardComponent implements OnInit {
   @Output() deleteProductEvt = new EventEmitter<Product>();
 
   constructor() { 
-    this.product = new Product(null, "", "", null, "");
+    this.product = new Product(null, "", "", null, "", 0, new ProductCategory(0, ""));
     this.index = 0;
   }
 

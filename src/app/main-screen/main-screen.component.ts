@@ -18,7 +18,7 @@ export class MainScreenComponent implements OnInit {
   ngOnInit(): void {
     if (!this.sessionStorageService.getSession().token) {
       this.sessionStorageService.removeSession();
-      this.router.navigate([""])
+      this.router.navigate([""]);
     }
   }
 
